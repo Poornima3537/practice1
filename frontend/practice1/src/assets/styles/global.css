@@ -1,0 +1,12 @@
+.page-container {
+  min-height: 100vh;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.pointer {
+  cursor: pointer;
+}
