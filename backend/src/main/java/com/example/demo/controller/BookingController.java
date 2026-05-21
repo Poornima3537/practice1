@@ -1,15 +1,16 @@
 package com.example.demo.controller;
 
+import java.util.List;
 
-import com.hotelbooking.entity.Booking;
-import com.hotelbooking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.example.demo.dto.BookingDTO;
+import com.example.demo.entity.Booking;
+import com.example.demo.service.BookingService;
 
 @RestController
-@RequestMapping("/booking")
+@RequestMapping("/bookings")
 @CrossOrigin("*")
 public class BookingController {
 
@@ -18,9 +19,9 @@ public class BookingController {
 
     // Create Booking
     @PostMapping
-    public Booking createBooking(@RequestBody Booking booking) {
+    public Booking createBooking(@RequestBody BookingDTO dto) {
 
-        return bookingService.createBooking(booking);
+        return bookingService.createBooking(dto);
     }
 
     // Get All Bookings

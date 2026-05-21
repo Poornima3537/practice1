@@ -1,7 +1,16 @@
-package com.hotelbooking.entity;
+package com.example.demo.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -19,5 +28,11 @@ public class Hotel {
     private String location;
 
     private String amenities;
+
     private Double rating;
+
+    private Double price;
+
+    @OneToMany(mappedBy = "hotel")
+    private List<Room> rooms;
 }

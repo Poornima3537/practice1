@@ -1,12 +1,13 @@
 package com.example.demo.service;
 
+import java.util.List;
 
-import com.hotelbooking.entity.Room;
-import com.hotelbooking.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.example.demo.dto.RoomDTO;
+import com.example.demo.entity.Room;
+import com.example.demo.repository.RoomRepository;
 
 @Service
 public class RoomService {
@@ -15,7 +16,13 @@ public class RoomService {
     private RoomRepository roomRepository;
 
     // Add Room
-    public Room addRoom(Room room) {
+    public Room addRoom(RoomDTO dto) {
+
+        Room room = new Room();
+
+        room.setRoomType(dto.getRoomType());
+        room.setPrice(dto.getPrice());
+        room.setAvailable(dto.getAvailable());
 
         return roomRepository.save(room);
     }
@@ -34,13 +41,13 @@ public class RoomService {
     }
 
     // Update Room
-    public Room updateRoom(Long id, Room updatedRoom) {
+    public Room updateRoom(Long id, RoomDTO dto) {
 
         Room room = getRoomById(id);
 
-        room.setRoomType(updatedRoom.getRoomType());
-        room.setPrice(updatedRoom.getPrice());
-        room.setAvailable(updatedRoom.getAvailable());
+        room.setRoomType(dto.getRoomType());
+        room.setPrice(dto.getPrice());
+        room.setAvailable(dto.getAvailable());
 
         return roomRepository.save(room);
     }

@@ -1,13 +1,13 @@
 package com.example.demo.service;
 
-
-import com.hotelbooking.dto.LoginDTO;
-import com.hotelbooking.dto.RegisterDTO;
-import com.hotelbooking.entity.User;
-import com.hotelbooking.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.LoginDTO;
+import com.example.demo.dto.RegisterDTO;
+import com.example.demo.entity.User;
+import com.example.demo.repository.UserRepository;
 
 @Service
 public class AuthService {

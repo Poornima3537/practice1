@@ -1,12 +1,13 @@
 package com.example.demo.controller;
 
+import java.util.List;
 
-import com.hotelbooking.entity.Room;
-import com.hotelbooking.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.example.demo.dto.RoomDTO;
+import com.example.demo.entity.Room;
+import com.example.demo.service.RoomService;
 
 @RestController
 @RequestMapping("/rooms")
@@ -18,9 +19,9 @@ public class RoomController {
 
     // Add Room
     @PostMapping
-    public Room addRoom(@RequestBody Room room) {
+    public Room addRoom(@RequestBody RoomDTO dto) {
 
-        return roomService.addRoom(room);
+        return roomService.addRoom(dto);
     }
 
     // Get All Rooms
@@ -40,9 +41,9 @@ public class RoomController {
     // Update Room
     @PutMapping("/{id}")
     public Room updateRoom(@PathVariable Long id,
-                           @RequestBody Room room) {
+                           @RequestBody RoomDTO dto) {
 
-        return roomService.updateRoom(id, room);
+        return roomService.updateRoom(id, dto);
     }
 
     // Delete Room
